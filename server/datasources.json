@@ -1,1 +1,12 @@
-{}
+{
+  "lists": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "lists",
+    "password": "",
+    "name": "lists",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
