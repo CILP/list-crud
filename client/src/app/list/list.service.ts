@@ -19,4 +19,8 @@ export class ListService {
   getList(id: string = ''): Observable<List[]> {
     return this.http.get<List[]>(`${this.listEndpoint}/${id}`);
   }
+
+  deleteList(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.listEndpoint}/${id}`);
+  }
 }
