@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,19 +14,22 @@ import { ListComponent } from './list/list.component';
 
 import { ListService } from './list/list.service';
 import { ListResolver } from './list/list.resolver';
+import { AddListComponent } from './add-list/add-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    ListComponent
+    ListComponent,
+    AddListComponent
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     ListService,

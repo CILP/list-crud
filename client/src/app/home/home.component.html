@@ -9,6 +9,12 @@
   </div>
 </div>
 
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red" [routerLink]="['/list/add']">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
 <div id="modalDelete" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="deleteModalActions">
   <div class="modal-content">
     <h4>Do you want to delete the selected List?</h4>

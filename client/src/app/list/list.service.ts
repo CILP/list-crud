@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { List } from './list.model';
 import { API_URL } from '../shared/constants/costants';
-
-const httpOptions = {
-  headers: {'Content-Type': 'application/json'}
-};
 
 @Injectable()
 export class ListService {
@@ -22,5 +18,9 @@ export class ListService {
 
   deleteList(id: string): Observable<any> {
     return this.http.delete<any>(`${this.listEndpoint}/${id}`);
+  }
+
+  createList(list: List): Observable<List> {
+    return this.http.post<List>(this.listEndpoint, list);
   }
 }

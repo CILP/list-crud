@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <form novalidate class="col s12" [formGroup]="listForm" (ngSubmit)="createList()">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="List name" id="name" type="text" formControlName="name">
+                    <label for="first_name">List name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="List description" id="description" type="text" formControlName="description">
+                    <label for="last_name">List Description</label>
+                </div>
+            </div>
+            <div class="row buttons">
+                <button class="btn waves-effect waves-light red" 
+                    type="submit"
+                    [disabled]="listForm.invalid">
+                    Create List
+                    <i class="material-icons right">send</i>
+                </button>
+            
+                <button class="btn waves-effect waves-light red"
+                    type="button"
+                    [routerLink]="['/list']">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
