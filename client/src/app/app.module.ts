@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { HeaderComponent } from './shared/components/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { GenericFormComponent } from './shared/components/generic-form/generic-form.component';
 import { ListComponent } from './list/list.component';
 
 import { ListService } from './list/list.service';
@@ -22,7 +23,8 @@ import { AddListComponent } from './add-list/add-list.component';
     HomeComponent,
     HeaderComponent,
     ListComponent,
-    AddListComponent
+    AddListComponent,
+    GenericFormComponent
   ],
   imports: [
     BrowserModule,

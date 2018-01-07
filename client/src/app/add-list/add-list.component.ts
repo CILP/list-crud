@@ -4,6 +4,7 @@ import { MaterializeAction } from 'angular2-materialize';
 import { ListService } from '../list/list.service';
 
 import { List } from '../list/list.model';
+import { GenericForm } from '../shared/components/generic-form/generic-form.model';
 
 declare const Materialize: any;
 
@@ -14,21 +15,28 @@ declare const Materialize: any;
 })
 export class AddListComponent implements OnInit {
 
-  listForm: FormGroup;
+  createFormOptions: GenericForm;
 
   constructor(
-    private listService: ListService,
-    private fb: FormBuilder
+    private listService: ListService
   ) { }
 
   ngOnInit() {
-    this.listForm = this.fb.group({
+    this.createFormOptions = {
+      target: 'List',
+      submitText: 'Create List',
+      cancelText: 'Cancel',
+      successText: 'List created successfully!',
+      serviceMethod: 'createList'
+    };
+
+    /*this.listForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required]
-    });
+    });*/
   }
 
-  createList() {
+  /*createList() {
     const name: string = this.listForm.value.name;
     const description: string = this.listForm.value.description;
 
@@ -43,6 +51,6 @@ export class AddListComponent implements OnInit {
         .subscribe(() => {
           Materialize.toast('List created successfully!', 2000);
         })
-  }
+  }*/
 
 }
