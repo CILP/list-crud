@@ -20,10 +20,11 @@ MongoDB should be setup as
     "user": "",
 ```
 
-##Run API Server
+##Install and Run API Server
 Open a terminal or cmd and type
 ```
 $ cd list-crud
+$ npm install
 $ npm start
 ```
 
@@ -37,11 +38,12 @@ The api will run on:
 http://localhost:3000/api
 ```
 
-##Run Client
+##Install and Run Client
 Open another terminal or cmd and type
 ```
 $ cd list-crud
 $ cd client
+$ npm install
 $ npm start
 ```
 
