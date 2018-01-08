@@ -1,7 +1,7 @@
 # list-crud
 List and items API and Client
 
-##Prerequisites
+## Prerequisites
 To Install and run the project you need to have installed NodeJS
 ``` 
 https://nodejs.org/en
@@ -20,7 +20,7 @@ MongoDB should be setup as
     "user": "",
 ```
 
-##Install and Run API Server
+## Install and Run API Server
 Open a terminal or cmd and type
 ```
 $ cd list-crud
@@ -38,7 +38,7 @@ The api will run on:
 http://localhost:3000/api
 ```
 
-##Install and Run Client
+## Install and Run Client
 Open another terminal or cmd and type
 ```
 $ cd list-crud
@@ -52,5 +52,5 @@ The client will run on:
 http://localhost:4200
 ```
 
-##License
+## License
 MIT License
