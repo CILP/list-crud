@@ -1,0 +1,9 @@
+.card .card-content .card-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card .card-action .options a {
+    color: #ee6e73;
+    cursor: pointer;
+  }

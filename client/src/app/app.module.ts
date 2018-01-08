@@ -12,13 +12,18 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { GenericFormComponent } from './shared/components/generic-form/generic-form.component';
 import { ListComponent } from './list/list.component';
+import { GenericCardComponent } from './shared/components/generic-card/generic-card.component';
 
 import { ListService } from './list/list.service';
 import { ListResolver } from './list/list.resolver';
+import { ItemService } from './item/item.service';
+import { ItemResolver } from './item/item.resolver';
 import { SelectedListService } from './shared/services/selected-list.service';
 
 import { AddListComponent } from './add-list/add-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
+import { ItemComponent } from './item/item.component';
+import { ListContentComponent } from './list-content/list-content.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,10 @@ import { EditListComponent } from './edit-list/edit-list.component';
     ListComponent,
     AddListComponent,
     GenericFormComponent,
-    EditListComponent
+    EditListComponent,
+    GenericCardComponent,
+    ItemComponent,
+    ListContentComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,9 @@ import { EditListComponent } from './edit-list/edit-list.component';
   providers: [
     ListService,
     ListResolver,
-    SelectedListService
+    SelectedListService,
+    ItemService,
+    ItemResolver
   ],
   bootstrap: [AppComponent]
 })

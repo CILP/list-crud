@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+      <app-item
+        class="col s12 m4 l4 xl4"
+        *ngFor="let item of items"
+        [item]="item"
+        (delete)="deleteItem($event)"
+        (edit)="editItem($event)">
+      </app-item>
+    </div>
+  </div>

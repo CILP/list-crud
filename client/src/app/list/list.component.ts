@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { List } from './list.model';
-import { debug } from 'util';
 
 @Component({
   selector: 'app-list',
@@ -19,6 +18,9 @@ export class ListComponent implements OnInit {
   @Output()
   edit = new EventEmitter<List>();
 
+  @Output()
+  see = new EventEmitter<List>();
+
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +32,10 @@ export class ListComponent implements OnInit {
 
   editList() {
     this.edit.emit(this.list);
+  }
+
+  seeListContent() {
+    this.see.emit(this.list);
   }
 
 }

@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
-    <app-list 
-      class="col s12 m4 l4 xl4" 
+    <app-list
+      class="col s12 m4 l4 xl4"
       *ngFor="let list of lists"
       [list]="list"
-      (delete)="openDeleteModal($event)"
-      (edit)="goToEditList($event)">
+      (delete)="deleteList($event)"
+      (edit)="editList($event)"
+      (see)="seeListContent($event)">
     </app-list>
   </div>
 </div>

@@ -6,7 +6,6 @@ import { ListService } from '../list/list.service';
 import { SelectedListService } from '../shared/services/selected-list.service';
 
 import { List } from '../list/list.model';
-import { debug } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +15,6 @@ import { debug } from 'util';
 export class HomeComponent implements OnInit {
   lists: List[];
   deleteModalActions = new EventEmitter<string | MaterializeAction>();
-
-  // selectedList: List;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,10 +27,19 @@ export class HomeComponent implements OnInit {
     this.lists = this.route.snapshot.data['lists'];
   }
 
-  openDeleteModal(listId: string) {
+  deleteList(listId: string) {
     this.selectedListService.list = this.lists.find(l => l.id === listId);
-    //this.selectedList = this.lists.find(l => l.id === listId);
     this.deleteModalActions.emit({action: 'modal', params: ['open']});
+  }
+
+  editList(list: List) {
+    this.selectedListService.list = list;
+    this.router.navigate(['/list/edit', list.id]);
+  }
+
+  seeListContent(list: List) {
+    this.selectedListService.list = list;
+    this.router.navigate(['list/items/', list.id]);
   }
 
   closeDeleteModal() {
@@ -49,10 +55,5 @@ export class HomeComponent implements OnInit {
           this.lists = this.lists.filter(l => l.id !== listId);
           this.selectedListService.list = null;
         })
-  }
-
-  goToEditList(list: List) {
-    this.selectedListService.list = list;
-    this.router.navigate(['/list/edit', list.id]);
   }
 }
