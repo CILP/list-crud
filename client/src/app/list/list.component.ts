@@ -16,6 +16,9 @@ export class ListComponent implements OnInit {
   @Output()
   delete = new EventEmitter<string>();
 
+  @Output()
+  edit = new EventEmitter<List>();
+
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +26,10 @@ export class ListComponent implements OnInit {
 
   deleteList() {
     this.delete.emit(this.list.id);
+  }
+
+  editList() {
+    this.edit.emit(this.list);
   }
 
 }

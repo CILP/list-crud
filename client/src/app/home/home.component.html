@@ -4,7 +4,8 @@
       class="col s12 m4 l4 xl4" 
       *ngFor="let list of lists"
       [list]="list"
-      (delete)="openDeleteModal($event)">
+      (delete)="openDeleteModal($event)"
+      (edit)="goToEditList($event)">
     </app-list>
   </div>
 </div>

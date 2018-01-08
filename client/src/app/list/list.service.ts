@@ -23,4 +23,8 @@ export class ListService {
   createList(list: List): Observable<List> {
     return this.http.post<List>(this.listEndpoint, list);
   }
+
+  updateList(id: string, portion: List | {}): Observable<List> {
+    return this.http.patch<List>(`${this.listEndpoint}/${id}`, portion);
+  }
 }

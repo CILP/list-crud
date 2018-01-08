@@ -3,14 +3,14 @@
             <form novalidate class="col s12" [formGroup]="genericForm" (ngSubmit)="submitForm()">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="{{formOptions.target}} name" id="name" type="text" formControlName="name">
-                        <label for="first_name">{{formOptions.target}} name</label>
+                        <div class="label">{{formOptions.target}} name</div>
+                        <input id="name" type="text" formControlName="name">
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="{{formOptions.target}} description" id="description" type="text" formControlName="description">
-                        <label for="last_name">{{formOptions.target}} description</label>
+                        <div class="label">{{formOptions.target}} description</div>
+                        <input id="description" type="text" formControlName="description">
                     </div>
                 </div>
                 <div class="row buttons">

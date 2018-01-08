@@ -1,0 +1,12 @@
+form {
+    margin-top: 3em; 
+}
+
+form div.buttons {
+    margin-left: auto;
+}
+
+form div.label {
+    font-size: 12px;
+    font-weight: bold;
+}

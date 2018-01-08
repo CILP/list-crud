@@ -15,7 +15,10 @@ import { ListComponent } from './list/list.component';
 
 import { ListService } from './list/list.service';
 import { ListResolver } from './list/list.resolver';
+import { SelectedListService } from './shared/services/selected-list.service';
+
 import { AddListComponent } from './add-list/add-list.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { AddListComponent } from './add-list/add-list.component';
     HeaderComponent,
     ListComponent,
     AddListComponent,
-    GenericFormComponent
+    GenericFormComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import { AddListComponent } from './add-list/add-list.component';
   ],
   providers: [
     ListService,
-    ListResolver
+    ListResolver,
+    SelectedListService
   ],
   bootstrap: [AppComponent]
 })
