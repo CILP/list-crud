@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { List } from '../../list/list.model';
+import { List } from 'app/list/list.model';
 
 @Injectable()
 export class SelectedListService {

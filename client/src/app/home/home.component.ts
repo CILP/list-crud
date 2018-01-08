@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   seeListContent(list: List) {
     this.selectedListService.list = list;
-    this.router.navigate(['list/items/', list.id]);
+    this.router.navigate(['list/items', list.id]);
   }
 
   closeDeleteModal() {

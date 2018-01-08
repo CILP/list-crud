@@ -89,18 +89,13 @@ export class GenericFormComponent implements OnInit {
               Materialize.toast(this.formOptions.successText, 2000);
             });
       } else {
-        this.itemService[serviceMethod]({name, description})
+        const { id, quantity } = this.selectedListService.list;
+        this.itemService[serviceMethod]({name, description, listId: id})
           .subscribe(() => {
-            const { id, quantity } = this.selectedListService.list;
-
-            if (serviceMethod === 'createItem') {
               this.listService.updateList(id, { quantity: quantity + 1 })
                   .subscribe(() => {
                     Materialize.toast(this.formOptions.successText, 2000);
                   });
-            } else {
-              Materialize.toast(this.formOptions.successText, 2000);
-            }
           });
       }
     }

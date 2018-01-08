@@ -13,7 +13,7 @@ export class ItemService {
   constructor(private http: HttpClient) {}
 
   getItems(listId: string = ''): Observable<Item[]> {
-    return this.http.get<Item[]>(`${this.itemEndpoint}?filter={"listId": "${listId}"}`);
+    return this.http.get<Item[]>(`${this.itemEndpoint}?filter={"where": {"listId": "${listId}"}}`);
   }
 
   deleteItem(id: string): Observable<any> {
