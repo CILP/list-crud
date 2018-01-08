@@ -26,6 +26,7 @@ import { EditListComponent } from './edit-list/edit-list.component';
 import { ItemComponent } from './item/item.component';
 import { ListContentComponent } from './list-content/list-content.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     GenericCardComponent,
     ItemComponent,
     ListContentComponent,
-    EditItemComponent
+    EditItemComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

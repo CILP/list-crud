@@ -5,6 +5,7 @@ import { MaterializeAction } from 'angular2-materialize';
 import { SelectedListService } from 'app/shared/services/selected-list.service';
 import { SelectedItemService } from 'app/shared/services/selected-item.service';
 import { ItemService } from '../item/item.service';
+import { ListService } from '../list/list.service';
 
 import { List } from '../list/list.model';
 import { Item } from '../item/item.model';
@@ -25,7 +26,8 @@ export class ListContentComponent implements OnInit {
     private router: Router,
     private selectedListService: SelectedListService,
     private selectedItemService: SelectedItemService,
-    private itemService: ItemService
+    private itemService: ItemService,
+    private listService: ListService
   ) { }
 
   ngOnInit() {
@@ -53,8 +55,14 @@ export class ListContentComponent implements OnInit {
     this.itemService
         .deleteItem(itemId)
         .subscribe(() => {
+          const { id, quantity } = this.selectedListService.list;
+
           this.items = this.items.filter(i => i.id !== itemId);
-          this.selectedItemService.item = null;
+
+          this.listService.updateList(id, { quantity: quantity - 1})
+              .subscribe(() => {
+                this.selectedItemService.item = null;
+              })
         })
   }
 

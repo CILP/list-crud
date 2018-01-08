@@ -6,6 +6,7 @@ import { AddListComponent } from './add-list/add-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { ListContentComponent } from './list-content/list-content.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 import { ListResolver } from './list/list.resolver';
 import { ItemResolver } from './item/item.resolver';
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'item/edit/:id',
     component: EditItemComponent
+  },
+  {
+    path: 'item/add',
+    component: AddItemComponent
   }
 ];
 
