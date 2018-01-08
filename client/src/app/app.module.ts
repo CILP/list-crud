@@ -19,11 +19,13 @@ import { ListResolver } from './list/list.resolver';
 import { ItemService } from './item/item.service';
 import { ItemResolver } from './item/item.resolver';
 import { SelectedListService } from './shared/services/selected-list.service';
+import { SelectedItemService } from './shared/services/selected-item.service';
 
 import { AddListComponent } from './add-list/add-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { ItemComponent } from './item/item.component';
 import { ListContentComponent } from './list-content/list-content.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ListContentComponent } from './list-content/list-content.component';
     EditListComponent,
     GenericCardComponent,
     ItemComponent,
-    ListContentComponent
+    ListContentComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { ListContentComponent } from './list-content/list-content.component';
     ListResolver,
     SelectedListService,
     ItemService,
-    ItemResolver
+    ItemResolver,
+    SelectedItemService
   ],
   bootstrap: [AppComponent]
 })

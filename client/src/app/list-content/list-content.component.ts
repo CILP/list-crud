@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MaterializeAction } from 'angular2-materialize';
 
 import { SelectedListService } from 'app/shared/services/selected-list.service';
+import { SelectedItemService } from 'app/shared/services/selected-item.service';
+import { ItemService } from '../item/item.service';
 
 import { List } from '../list/list.model';
 import { Item } from '../item/item.model';
@@ -15,15 +18,44 @@ export class ListContentComponent implements OnInit {
 
   list: List;
   items: Item[];
+  deleteModalActions = new EventEmitter<string | MaterializeAction>();
 
   constructor(
     private route: ActivatedRoute,
-    private selectedListService: SelectedListService
+    private router: Router,
+    private selectedListService: SelectedListService,
+    private selectedItemService: SelectedItemService,
+    private itemService: ItemService
   ) { }
 
   ngOnInit() {
     this.list = this.selectedListService.list;
     this.items = this.route.snapshot.data['items'];
+  }
+
+  deleteItem(itemId: string) {
+    this.selectedItemService.item = this.items.find(i => i.id === itemId);
+    this.deleteModalActions.emit({action: 'modal', params: ['open']});
+  }
+
+  editItem(item: Item) {
+    this.selectedItemService.item = item;
+    this.router.navigate(['/item/edit', item.id]);
+  }
+
+  closeDeleteModal() {
+    this.deleteModalActions.emit({action: 'modal', params: ['close']});
+  }
+  
+  agreeDeleteModal() {
+    const itemId = this.selectedItemService.item.id;
+
+    this.itemService
+        .deleteItem(itemId)
+        .subscribe(() => {
+          this.items = this.items.filter(i => i.id !== itemId);
+          this.selectedItemService.item = null;
+        })
   }
 
 }

@@ -1,11 +1,27 @@
 <div class="container">
-    <div class="row">
-      <app-item
-        class="col s12 m4 l4 xl4"
-        *ngFor="let item of items"
-        [item]="item"
-        (delete)="deleteItem($event)"
-        (edit)="editItem($event)">
-      </app-item>
-    </div>
+  <div class="row">
+    <app-item
+      class="col s12 m4 l4 xl4"
+      *ngFor="let item of items"
+      [item]="item"
+      (delete)="deleteItem($event)"
+      (edit)="editItem($event)">
+    </app-item>
   </div>
+</div>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red" [routerLink]="['/item/add']">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
+
+<div id="modalItemDelete" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="deleteModalActions">
+  <div class="modal-content">
+    <h4>Do you want to delete the selected Item?</h4>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeDeleteModal()">Close</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat" (click)="agreeDeleteModal()">Agree</a>
+  </div>
+</div>

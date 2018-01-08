@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AddListComponent } from './add-list/add-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { ListContentComponent } from './list-content/list-content.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 import { ListResolver } from './list/list.resolver';
 import { ItemResolver } from './item/item.resolver';
@@ -33,6 +34,10 @@ const routes: Routes = [
     resolve: {
       items: ItemResolver
     }
+  },
+  {
+    path: 'item/edit/:id',
+    component: EditItemComponent
   }
 ];
 
